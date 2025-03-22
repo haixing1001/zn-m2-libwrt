@@ -1,6 +1,7 @@
 name: ZNM2-6.12-NOWIFI
 
 on:
+  repository_dispatch:
   workflow_dispatch:
     inputs:
       ssh:
