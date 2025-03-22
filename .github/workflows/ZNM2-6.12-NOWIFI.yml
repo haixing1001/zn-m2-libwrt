@@ -1,4 +1,4 @@
-name: IPQ60XX-6.12-NOWIFI
+name: ZNM2-6.12-NOWIFI
 
 on:
   repository_dispatch:
@@ -12,13 +12,13 @@ on:
 env:
   REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
   REPO_BRANCH: kernel-6.12
-  CONFIG_FILE: configs/ipq60xx-6.12-nowifi.config
+  CONFIG_FILE: configs/znm2-6.12-nowifi.config
   DIY_SCRIPT: diy-script.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: IPQ60XX-6.12-NOWIFI
+  FIRMWARE_TAG: ZNM2-6.12-NOWIFI
   TZ: Asia/Shanghai
 
 jobs:
@@ -112,6 +112,13 @@ jobs:
         chmod +x ${DIY_SCRIPT}
         cd $OPENWRT_PATH
         ${GITHUB_WORKSPACE}/${DIY_SCRIPT}
+        
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         
     - name: Download DL Package(下载DL软件包)
       run: |
