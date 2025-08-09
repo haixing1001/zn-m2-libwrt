@@ -5,7 +5,7 @@ on:
     inputs:
       debug_enabled:
         type: boolean
-        description: 'Run the build with tmate debugging enabled'
+        description: 'SSH connection to Actions enabled'
         required: false
         default: false
         
@@ -123,8 +123,8 @@ jobs:
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
 
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@main
       if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
 
     - name: Download DL Package(下载DL软件包)
