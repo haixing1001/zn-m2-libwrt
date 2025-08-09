@@ -123,6 +123,13 @@ jobs:
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
 
+    - name: Custom Packages
+      run: |
+        cd $OPENWRT_PATH/package/
+
+        $GITHUB_WORKSPACE/Scripts/Packages.sh
+        #$GITHUB_WORKSPACE/Scripts/Handles.sh
+
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@main
       if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
