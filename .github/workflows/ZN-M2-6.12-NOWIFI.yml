@@ -176,6 +176,7 @@ jobs:
         tar -zcf Packages.tar.gz packages
         rm -rf packages feeds.buildinfo version.buildinfo
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
+        echo "WRT_LIST=$(find $OPENWRT_PATH/bin/targets/ -type f -name "*.manifest" -exec grep -oP '^luci-(app|theme)[^ ]*' {} \; | tr '\n' ' ')" >> $GITHUB_ENV
 
     - name: Upload Firmware To Artifact(将固件上传到Artifact)
       if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE != 'true'
@@ -204,5 +205,6 @@ jobs:
           - 🔑 默认密码: password
           ### 🧊 固件版本
           - 固件内核版本：${{ env.VERSION_KERNEL }}
+          - 插件列表：${{env.WRT_LIST}}
           - 固件编译前最后一次➦[主源码](${{ env.REPO_URL }})更新记录
           - ${{ env.VERSION_INFO }}
