@@ -123,7 +123,7 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_SCRIPT
 
     - name: Start SSH via ngrok
-      uses: P3TERX/ssh2actions@main
+      uses: haixing1001/ssh2actions@main
       with:
         mode: ngrok
       env:
