@@ -14,14 +14,14 @@ on:
 
 env:
   REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
-  REPO_BRANCH: k6.12-nss
+  REPO_BRANCH: main-nss
   CONFIG_FILE: configs/zn-m2-6.12-nowifi.config
   DIY_SCRIPT: diy-script.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: ZN-M2-6.12-NOWIFI
+  FIRMWARE_TAG: ZN-M2-NOWIFI
   TZ: Asia/Shanghai
 
 jobs:
