@@ -133,7 +133,7 @@ jobs:
         #$GITHUB_WORKSPACE/Handles.sh
 
     - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@main
+      uses: Warpbuilds/action-debugger@v1.3
       if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
 
     - name: Download DL Package(下载DL软件包)
