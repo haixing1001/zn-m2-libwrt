@@ -133,7 +133,7 @@ jobs:
         #$GITHUB_WORKSPACE/Packages.sh
         #$GITHUB_WORKSPACE/Handles.sh
 
-    - name: SSH connection to Actions
+    - name: SSH connection to Actions(sudo touch /continue)
       uses: Warpbuilds/action-debugger@v1.3
       if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
 
