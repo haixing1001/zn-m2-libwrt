@@ -79,7 +79,7 @@ git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 
 # cloudspeedtest
-git_sparse_clone main https://github.com/haixing1001/my-packages applications/cdnspeedtest applications/luci-app-cloudflarespeedtest applications/luci-app-frpc applications/frp
+git_sparse_clone main https://github.com/haixing1001/my-packages applications/cdnspeedtest applications/luci-app-cloudflarespeedtest applications/luci-app-frpc applications/frp applications/luci-app-singbox-server
  
 # DDNS.to
 #git_sparse_clone main https://github.com/linkease/nas-packages-luci luci/luci-app-ddnsto
